@@ -1,0 +1,1 @@
+export const OWNER_UID = "sV0b7nmUOSN2BwCvudNos5y4EQO2";

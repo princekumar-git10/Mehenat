@@ -1,0 +1,382 @@
+.navbar {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 70px);
+  max-width: 1400px;
+
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 12px 0 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  border-radius: 18px;
+
+  background: rgba(12, 15, 22, 0.52);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  z-index: 100;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================
+   SUBTLE TOP GLOW
+   ========================================= */
+
+.navbar::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 15%;
+
+  width: 70%;
+  height: 1px;
+
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(100, 140, 255, 0.6),
+      rgba(255, 170, 120, 0.5),
+      transparent);
+
+  opacity: 0.7;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.navbar-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+
+/* Small glowing dot */
+
+.logo-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 18px rgba(120, 160, 255, 0.5);
+}
+
+
+/* Logo text */
+
+.logo-text {
+  color: #ffffff;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+
+/* =========================================
+   NAVIGATION LINKS
+   ========================================= */
+
+.navbar-links {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+
+.nav-link {
+  position: relative;
+
+  padding: 10px 15px;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  text-decoration: none;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.2px;
+
+  border-radius: 10px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* Hover */
+
+.nav-link:hover {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.055);
+}
+
+
+/* Active */
+
+.nav-link.active {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.075);
+}
+
+
+/* Active glowing line */
+
+.nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 4px;
+
+  transform: translateX(-50%);
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 8px rgba(130, 170, 255, 0.9);
+}
+
+
+/* =========================================
+   RIGHT SIDE
+   ========================================= */
+
+.navbar-right {
+  display: flex;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   LET'S TALK BUTTON
+   ========================================= */
+
+.nav-connect {
+  display: flex;
+  cursor: pointer;
+  font-family: inherit;
+
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+
+  border-radius: 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.035));
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.nav-connect:hover {
+  transform: translateY(-1px);
+
+  background:
+    linear-gradient(135deg,
+      rgba(100, 140, 255, 0.18),
+      rgba(255, 170, 120, 0.10));
+
+  border-color: rgba(255, 255, 255, 0.22);
+
+  box-shadow:
+    0 5px 25px rgba(70, 100, 180, 0.15);
+}
+
+
+/* Arrow */
+
+.arrow {
+  font-size: 15px;
+
+  line-height: 1;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+.nav-connect:hover .arrow {
+  transform: translate(2px,
+      -2px);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .navbar {
+    width: calc(100% - 30px);
+
+    top: 15px;
+
+    height: 62px;
+
+    padding:
+      0 10px 0 18px;
+  }
+
+
+  .navbar-links {
+    gap: 0;
+  }
+
+
+  .nav-link {
+    padding:
+      9px 8px;
+
+    font-size: 11px;
+  }
+
+
+  .navbar-right {
+    display: none;
+  }
+
+
+  .logo-text {
+    font-size: 13px;
+
+    letter-spacing: 2px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 520px) {
+
+  .navbar {
+    width: calc(100% - 20px);
+  }
+
+
+  .navbar-links {
+    position: static;
+
+    transform: none;
+
+    margin-left: auto;
+
+    margin-right: 4px;
+  }
+
+
+  .nav-link {
+    padding:
+      8px 6px;
+
+    font-size: 10px;
+  }
+
+
+  .nav-link:nth-child(4),
+  .nav-link:nth-child(5) {
+    display: none;
+  }
+
+}
